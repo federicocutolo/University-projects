@@ -1,0 +1,100 @@
+\documentclass[UKenglish]{elbioimp2}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\lacmd}[1]{\p{\textbackslash #1}}
+\newcommand{\lacmdx}[1]{\lacmd{#1\{\dots\}}}
+\newcommand{\p}[1]{\texttt{#1}}
+
+\title{\texttt{elbioimp2} documentation}
+\shorttitle{\tt{elbioimp2} doc}
+\author{Dag Langmyhr\affiliation{Department of Informatics, University
+    of Oslo, Norway \url{dag@ifi.uio.no}}}
+\shortauthor{Langmyhr}
+
+%\elbioimpdoi{0}
+%\elbioimpreceived{20 Sep 2020}
+%\elbioimppublished{21 Sep 2020}
+%\elbioimpyear{2020}
+%\elbioimpvolume{1}
+
+\usepackage[backend=biber,style=vancouver]
+    {biblatex}
+\usepackage{csquotes}
+\addbibresource{demo.bib}
+
+
+%% And, now, the article itself:
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  The \p{elbioimp2} document class has been designed for using
+  \LaTeX{} to write articles for the \emph{Journal of Electrical
+    Impedance}. 
+
+  \keywords{elbioimp2, \LaTeX}
+\end{abstract}
+
+
+\section{Background}
+This document class is for writing manuscripts for the \emph{Journal
+  of Electrical Impedance} in the second, redesigned version, as
+shown in this documentation. (The now obsolete document class
+\p{elbioimp} is for the old design.)
+
+\section{How to use the document class}
+Since the \p{elbioimp2} document class is based on the standard
+\p{article} class, most constructs from \p{article} may be used in
+\p{elbioimp2} as well.
+
+\subsection{Additional commands}
+In addition to the standard \LaTeX{} commands available in the
+\p{article} document class, the following ones are available:
+\begin{description}
+\item[\lacmdx{affiliation}] is used just after an author's name to
+  specify his or her affiliation. (It is used only in the
+  \lacmd{author} command.) 
+
+\item[\lacmdx{elbioimpdoi}] provides the document's DOI
+  number.
+
+\item[\lacmdx{elbioimpfirstpage}] gives the page number of the first
+  page of the article (if other than~1).
+
+\item[\lacmdx{elbioimppublished}] is used for the publishing date of
+  the article.
+
+\item[\lacmdx{elbioimpreceived}] shows when the publishers received
+  the article.
+
+\item[\lacmd{elbioimpvolume}] gives the volume number in which the
+  article is published.
+  
+\item[\lacmdx{elbioimpyear}] indicated the year of publication (if
+  other than the current year).
+
+\item[\lacmdx{keywords}] lists the keywords. (It is only used in the
+  \p{abstract} environment.)
+
+\item[\lacmdx{shortauthor}] is for the first author's last name to use
+  in the headings..
+
+\item[\lacmdx{shorttitle}] provides a short version of the title, also
+  to use in the headings..
+\end{description}
+
+\subsection{Reference style}
+The reference list will be typeset according the \emph{Vancouver}
+style.\cite{biomed-req} To achieve this, you must load Bib\LaTeX{}
+this way in your document:
+
+\begin{verbatim}
+\usepackage[backend=biber,style=vancouver]
+    {biblatex}
+\usepackage{csquotes}
+\addbibresource{mybib.bib}
+\end{verbatim}
+
+\printbibliography
+\end{document}
